@@ -1,7 +1,8 @@
 import tkinter as tk 
 from services.my_sql import conectar
 from views.dashboard import ventana_usuario
-
+tamano_wi = 500
+tamano_he = 300
 def cargar_login(ventana):
     # Panel principal
     login_panel = tk.Frame(
@@ -9,8 +10,10 @@ def cargar_login(ventana):
         bg="#e6f2ff",     # Azul claro
         padx=40,
         pady=40,
-        width=1000,
-        height=600
+        width=tamano_wi,
+        height=tamano_he
+
+
     )
     login_panel.pack(expand=True)
 
@@ -53,6 +56,7 @@ def cargar_login(ventana):
 
     # Función del botón
     def funcion_boton():
+        
         usuario_login = entrada_correo.get()
         contrasenha_login = entrada_contrasenha.get()
         consultar_usuario = conectar(
