@@ -7,9 +7,11 @@ from views.dashboard import cargar_productos
 
 ventana = tk.Tk()
 ventana.title("Mi tienda")
-ventana.geometry(f"{tamano_wi}x{tamano_he}")
+ventana.geometry("500x300")
 
 cargar_login(ventana)
 
 ventana. mainloop()
 #USUARIO para puruebas : juan.perez@email.com ,contraseña: 123456   
+
+

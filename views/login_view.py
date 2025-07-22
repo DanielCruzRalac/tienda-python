@@ -1,21 +1,25 @@
 import tkinter as tk 
 from services.my_sql import conectar
 from views.dashboard import ventana_usuario
-tamano_wi = 500
-tamano_he = 300
+
+
+
+
 def cargar_login(ventana):
+    panel_color = tk.Frame(ventana,background="#007acc")
+    panel_color.place(relx=0,rely=0,relheight=1,relwidth=1)
+
     # Panel principal
     login_panel = tk.Frame(
         ventana,
-        bg="#e6f2ff",     # Azul claro
-        padx=40,
-        pady=40,
-        width=tamano_wi,
-        height=tamano_he
-
-
+        bg="#e6f2ff"  # Azul claro
     )
-    login_panel.pack(expand=True)
+    
+    login_panel.place(
+        relx=0.1,
+        rely=0.1,
+        relwidth=0.8,
+        relheight=0.8)
 
     # Título
     titulo = tk.Label(
@@ -81,7 +85,7 @@ def cargar_login(ventana):
         padx=10,
         pady=5,
         relief="flat",
-        activebackground="#005f99"
+        activebackground="#0c2432"
     )
     boton.pack()
     entrada_contrasenha.bind("<Return>", lambda event: funcion_boton())
