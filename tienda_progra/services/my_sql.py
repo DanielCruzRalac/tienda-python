@@ -1,7 +1,6 @@
-# sql.py
 import mysql.connector
 
-def conectar(consulta_sql):
+def conectar(consulta_sql, parametros=None):
     # Credenciales para la conexión
     config = {
         'user': 'u0mpxrljxh9li3i2',
@@ -16,7 +15,10 @@ def conectar(consulta_sql):
         print("✅ Conexión exitosa a la base de datos.")
 
         consulta = conexion.cursor()
-        consulta.execute(consulta_sql)
+        if parametros:
+            consulta.execute(consulta_sql, parametros)
+        else:
+            consulta.execute(consulta_sql)
         resultado = consulta.fetchall()
 
         conexion.close()
@@ -24,4 +26,4 @@ def conectar(consulta_sql):
 
     except mysql.connector.Error as err:
         print(f"❌ Error al conectar a la base de datos: {err}")
-        return []  # <- IMPORTANTE: retorna lista vacía para evitar errores
+        return []  # Retorna lista vacía para evitar errores
